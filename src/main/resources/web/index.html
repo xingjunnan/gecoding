@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>地理编码</title>
+<link rel="stylesheet" href="layui/css/layui.css">
+</head>
+
+<body class="layui-layout-body">
+	<div class="layui-header">
+		<a href="">
+			<div class="layui-logo"></div>
+		</a>
+	</div>
+
+	<div class="layui-tab" lay-filter="mainTab" lay-allowClose="true">
+		<!-- 标题 -->
+		<fieldset class="layui-elem-field layui-field-title "
+			style="margin-top: 20px; color: green; font-weight: bold;">
+			<legend>地理编码</legend>
+		</fieldset>
+
+		<!-- 文件上传 -->
+		<div class="layui-upload">
+			<button type="button" class="layui-btn layui-btn-normal"
+				id="selectFile">选择文件</button>
+			<button type="button" class="layui-btn" id="uploadAction">开始上传</button>
+			<button id="add" type="button"
+				style="float: right; margin-right: 10px;"
+				class="layui-btn layui-btn-sm layui-btn-radius">
+				<i class="layui-icon">&#xe716;</i>
+			</button>
+			<div class="layui-upload-list">
+				<table class="layui-table">
+					<thead>
+						<tr>
+							<th>文件名</th>
+							<th>大小</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody id="fileList"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- 设置页面 -->
+	<div class="layui-row" id="set" style="display: none;">
+		<form class="layui-form layui-form-pane" id="setForm">
+			<div class="layui-form-item">
+				<label class="layui-form-label">excel列数：</label>
+				<div class="layui-input-block">
+					<input name="excelColumns" id="excelColumns"
+						lay-verify="required|number" lay-reqtext="请输入正整数"
+						class="layui-input">
+				</div>
+				<label class="layui-form-label">段落名称：</label>
+				<div class="layui-input-block">
+					<input name="fieldname" id="fieldname" lay-verify="required"
+						lay-reqtext="不能为空" class="layui-input">
+				</div>
+				<label class="layui-form-label">sheet名称：</label>
+				<div class="layui-input-block">
+					<input name="sheet" id="sheet" lay-verify="required"
+						lay-reqtext="不能为空" class="layui-input">
+				</div>
+				<label class="layui-form-label">导出路径：</label>
+				<div class="layui-input-block">
+					<select name="exportPath" id="exportPath">
+						<option value="C">C:\\ 不建议选择C盘，可能拒绝存储</option>
+						<option value="D">D:\\</option>
+						<option value="E">E:\\</option>
+						<option value="F">F:\\</option>
+					</select>
+				</div>
+				<label class="layui-form-label" style="padding-left: -50px;">线程个数:</label>
+				<div class="layui-input-block">
+					<select name="threadCount" id="threadCount">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+					</select>
+				</div>
+				<label class="layui-form-label">百度AK：</label>
+				<div class="layui-input-block">
+					<input name="baiduAk" id="baiduAk" lay-verify="required"
+						lay-reqtext="不能为空" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<button lay-submit="" lay-filter="suu"
+						class="layui-btn layui-btn-normal tijiao">保存</button>
+					<button class="layui-btn" onclick="back">取消</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- 进度条 -->
+	<div class="layui-progress layui-progress-big" lay-showpercent="true"
+		lay-filter="demo">
+		<div class="layui-progress-bar layui-bg-green" lay-percent="0%"></div>
+	</div>
+
+	<hr>
+
+	<!-- 打印解析日志 -->
+	<div class="layui-form-item layui-form-text">
+		<textarea class="layui-textarea" id="logger" style="font-size: 15px;"></textarea>
+	</div>
+
+</body>
+
+<script src="layui/layui.all.js"></script>
+<script src="js/layTabPlus.js"></script>
+<script src="js/upload.js"></script>
+<script src="js/set.js"></script>
+<script src="js/socket.js"></script>
+<script>
+	
+</script>
+<script>
+	var $ = layui.jquery;
+	var layer = layui.layer;
+	var form = layui.form;
+	var element = layui.element;
+	var util = layui.util;
+	var layedit = layui.layedit;
+	var table = layui.table;
+	layTabPlus.init({
+		lay_filter : 'mainTab'
+	});
+</script>
+<script>
+	function back() {
+		layer.closeAll('dialog');
+	}
+</script>
+</html>
