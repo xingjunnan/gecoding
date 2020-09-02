@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @ClassName:  ApplicationRunnerImpl   
  * @Description: 项目启动成功后，自定义提示信息   
  * @author: Junnan
- * @date:   2019年8月30日 上午10:40:06
+ * @date:   2019年8月30日 上午10:40:20
  */
 @Component
 public class ApplicationRunnerImpl implements ApplicationRunner {
