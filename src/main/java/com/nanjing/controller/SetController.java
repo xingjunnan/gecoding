@@ -19,7 +19,7 @@ import com.nanjing.entity.ThreadCount;
  * @ClassName:  SetController   
  * @Description: 动态获取、修改配置文件信息 
  * @author: Junnan
- * @date:   2019年8月23日 下午5:01:33
+ * @date:   2019年8月23日 下午20:20:20
  */
 @RestController
 @RequestMapping("/set")
