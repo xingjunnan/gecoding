@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * 
  * @ClassName:  ApplicationRunnerImpl   
  * @Description: 项目启动成功后，自定义提示信息
- * * @author: JunnanXXX
+ * @author: JunnanXXX
  * @date:   2019年8月30日 上午20:20:20YYY
  */
 @Component
